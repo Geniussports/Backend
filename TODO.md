@@ -1,5 +1,5 @@
 [*] Add user.id to the already existing JSON returns for user create/edit
-[ ] /teams POST (create a team and automatically become manager)
+[*] /teams POST (create a team and automatically become manager)
 [ ] /team/:id GET (displays team information)
 [ ] /teams/:id PUT (change information about the team)
       (manager, coach, player ids and names, parents can wait for a click on a player)

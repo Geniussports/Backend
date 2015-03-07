@@ -3,8 +3,8 @@ Rails.application.routes.draw do
                                     sessions: "sessions" }
 
   post '/teams', to: 'teams#create'
-  #get 'teams/:id', to: 'teams#show'
-  #put 'teams/:id', to: 'teams#update'
+  get 'teams/:id', to: 'teams#show'
+  put 'teams/:id', to: 'teams#update'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

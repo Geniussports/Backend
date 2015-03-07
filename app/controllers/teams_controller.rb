@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :authenticate_user_from_token! , :only => [:create]
+  before_action :authenticate_user_from_token! , :only => [:create, :update]
 
   def create
   @team = Team.new(team_params)
@@ -12,6 +12,21 @@ class TeamsController < ApplicationController
     end
   end
 
+  def update
+    @team = Team.find(params[:id])
+    @team.update(team_params)
+    if @team.save
+      render json: { team: @team }, status: :created
+    else
+      render json: { messages: @team.errors.full_messages },
+             status: :unprocessable_entity
+    end
+  end
+
+  def show
+    @team = Team.find(params[:id])
+    render json: @team
+  end
 
 private
   def set_team
