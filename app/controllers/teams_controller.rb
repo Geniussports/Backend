@@ -25,7 +25,9 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
-    render json: @team
+    render json: {team: @team,
+                  coaches: @team.json_coaches,
+                  players: @team.json_players}
   end
 
 private
