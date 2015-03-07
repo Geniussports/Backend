@@ -1,16 +1,16 @@
 [*] Add user.id to the already existing JSON returns for user create/edit
 [*] /teams POST (create a team and automatically become manager)
-[ ] /team/:id GET (displays team information)
+[*] /team/:id GET (displays team information)
 [ ] /teams/:id PUT (change information about the team)
       (manager, coach, player ids and names, parents can wait for a click on a player)
       invite: [[email, player name], [email, player name]]
       remove: player_id
       Invite needs to check for existing email addresses and if they exist, check that user's players for equivalent name (checking via .downcase on both)
       Need some sort of way to modify the schedule as well, but that would probably be a different page.
-[ ] /player/:id GET (displays player information)
+[#] /player/:id GET (displays player information)
       (medical info, parents and parents' relationships, email and number)
 [ ] /players POST (create a player with parent and team)
-[ ] /players PUT (parents can edit player)
+[*] /players PUT (parents can edit player)
 [ ] add a new Game model which has location, date, time, opponent.
     Games belong_to a team, teams have many games
 [ ] add an "invite_accepted" boolean to Roles

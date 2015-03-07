@@ -1,8 +1,10 @@
 class Team < ActiveRecord::Base
   has_many :roles
   has_many :team_players
+  has_many :games
   has_many :users, through: :roles
   has_many :players, through: :team_players
+
 
   def user_role(user)
     role = Role.where(user_id: user.id, team_id: self.id).first
