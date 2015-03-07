@@ -4,6 +4,7 @@ class TeamsController < ApplicationController
   def create
   @team = Team.new(team_params)
     if @team.save
+      Role.create(user_id: current_user.id, team_id: @team.id, manager: true)
       render json: { team: @team }, status: :created
     else
       render json: { messages: @team.errors.full_messages },
