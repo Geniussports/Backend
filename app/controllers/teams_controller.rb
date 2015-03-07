@@ -19,10 +19,18 @@ class TeamsController < ApplicationController
       invites.each do |invite|
         email = invite[0]
         user = User.find_by(email: email)
-        unless user
+        if user
+          player = user.players.where("lower(name) = ?", invite[1].downcase).first
+        else
           temp_pass = SecureRandom.hex(8)
-          User.create(email: email, temp_password: true, password: temp_pass)
+          user = User.create(email: email, temp_password: true, password: temp_pass)
         end
+        unless player
+          player = Player.create(name: invite[1])
+          user.players << player
+        end
+        @team.players << player
+        @team.users << user
         temp_pass ||= nil
         GeniusSportsMailer.invitation(invite, @team.name, temp_pass).deliver_now
       end
