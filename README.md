@@ -9,10 +9,11 @@ url: https://geniussports.herokuapp.com
 * user: {email: email, password: password}
 ```
 {
-    "user": {
-        "email": "test1@nowhere.com",
-        "auth_token": "FtH4ENxd9-H_TuNo89YP"
-    }
+  "user": {
+      "id": 2,
+      "email": "c@c.com",
+      "authentication_token": "Y5zT6jysg_ssc-hppsW_"
+}
 }
 ```
 
@@ -23,9 +24,10 @@ url: https://geniussports.herokuapp.com
 * user: {email: email, password: password}
 ```
 {
-    "user": {
-        "email": "test1@nowhere.com",
-        "auth_token": "FtH4ENxd9-H_TuNo89YP"
-    }
+  "user": {
+    "id": 1,
+    "email": "b@b.com",
+    "authentication_token": "hR2yA4a7WWzN6JGScYhf"
+}
 }
 ```
