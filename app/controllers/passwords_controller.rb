@@ -7,7 +7,7 @@ class PasswordsController < Devise::PasswordsController
     if @user.update(password_params)
       # Sign in the user by passing validation in case their password changed
       sign_in @user, :bypass => true
-      @user.update_attributes(:temp_password => true)
+      @user.update_attributes(:temp_password => nil)
       @user.save
       render json: { user: current_user }, status: :ok
     else
