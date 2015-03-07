@@ -1,15 +1,16 @@
 class TeamsController < ApplicationController
   before_action :authenticate_user_from_token! , :only => [:create]
 
-  def new
-  @team = Team.new
-  render :new
-  end
-
   def create
-
+  @team = Team.new(team_params)
+    if @team.save
+      render json: { team: @team }, status: :created
+    else
+      render json: { messages: @team.errors.full_messages },
+             status: :unprocessable_entity
+    end
   end
-end
+
 
 private
   def set_team
@@ -23,3 +24,5 @@ private
   def team_params
     params.require(:team).permit(:name)
   end
+
+end
