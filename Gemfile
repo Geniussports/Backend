@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.1.5'
-
+gem 'figaro'
+gem 'letter_opener'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use SCSS for stylesheets
