@@ -14,7 +14,6 @@ class TeamsController < ApplicationController
 
   def update
     @team = Team.find(params[:id])
-    binding.pry
     invites = JSON.parse(params[:invites])
     if invites
       invites.each do |invite|
