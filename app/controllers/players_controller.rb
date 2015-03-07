@@ -43,6 +43,10 @@ class PlayersController < ApplicationController
     end
 
     def render_player
-      render json: {player: @player }, status: :ok
+      family = @player.families.map do |f|
+        user = User.find(f.user_id)
+        { user: {id: user.id, email: user.email}, relationship: f.relationship }
+      end
+      render json: {player: @player, family: family }, status: :ok
     end
 end
