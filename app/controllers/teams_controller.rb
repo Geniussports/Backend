@@ -17,8 +17,18 @@ class TeamsController < ApplicationController
     invites = JSON.parse(params[:invites])
     if invites
       invites.each do |invite|
-        GeniusSportsMailer.invitation(invite, @team.name).deliver_now
+        email = invite[0]
+        user = User.find_by(email: email)
+        unless user
+          temp_pass = SecureRandom.hex(8)
+          User.create(email: email, temp_password: true, password: temp_pass)
+        end
+        temp_pass ||= nil
+        GeniusSportsMailer.invitation(invite, @team.name, temp_pass).deliver_now
       end
+      render json: "Invites sent"
+    else
+      render json: "This isn't working yet."
     # if @team.save
     #   render json: { team: @team }, status: :created
     # else

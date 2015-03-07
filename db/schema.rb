@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150307175944) do
+ActiveRecord::Schema.define(version: 20150307211215) do
 
   create_table "families", force: :cascade do |t|
     t.integer  "user_id"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20150307175944) do
     t.datetime "updated_at"
     t.string   "authentication_token"
     t.string   "phone_number"
+    t.boolean  "temp_password"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token"

@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
     super(options)
   end
 
+  def self.create_temp(email)
+    User.create(email: email, temp_password: true, password: SecureRandom.hex(8))
+  end
+
   private
     def generate_authentication_token
       loop do
