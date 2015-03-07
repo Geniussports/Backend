@@ -1,28 +1,31 @@
-== README
+== API USAGE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+url: https://geniussports.herokuapp.com
 
-Things you may want to cover:
+# Create User
 
-* Ruby version
+### /users POST
 
-* System dependencies
+* user: {email: email, password: password}
+```
+{
+    "user": {
+        "email": "test1@nowhere.com",
+        "auth_token": "FtH4ENxd9-H_TuNo89YP"
+    }
+}
+```
 
-* Configuration
+# Sign In User
 
-* Database creation
+### /users/sign_in POST
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* user: {email: email, password: password}
+```
+{
+    "user": {
+        "email": "test1@nowhere.com",
+        "auth_token": "FtH4ENxd9-H_TuNo89YP"
+    }
+}
+```
