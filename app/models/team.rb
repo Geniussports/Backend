@@ -3,4 +3,5 @@ class Team < ActiveRecord::Base
   has_many :team_players
   has_many :users, through: :roles
   has_many :players, through: :team_players
+  has_many :games
 end
