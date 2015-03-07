@@ -3,15 +3,16 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
-    render json: @player
+    render_player
   end
 
   def update
     @player = Player.find(params[:id])
     if @player.families.any? { |par| par.id == current_user.id }
-      render json: "Yes, you are a parent."
+      @player.update(player_params)
+      render_player
     else
-      render json: "You're not this kids parent, GTFO"
+      render json: "Sorry, only a family member can edit a player's information."
     end
   end
 
@@ -36,4 +37,12 @@ class PlayersController < ApplicationController
     end
   end
 
+  private
+    def player_params
+      params.require(:player).permit(:name, :medical_name, :medical_number, :medical_info)
+    end
+
+    def render_player
+      render json: {player: @player }, status: :ok
+    end
 end
