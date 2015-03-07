@@ -25,10 +25,18 @@ url: https://geniussports.herokuapp.com
 ```
 {
     "user": {
-        "id": 1,
-        "email": "b@b.com",
-        "authentication_token": "hR2yA4a7WWzN6JGScYhf"
-    }
+        "id": 2,
+        "email": "devito@gmail.com",
+        "authentication_token": "wbwFz4DjZZEAzWg5QsEf"
+    },
+    "teams": [
+        {
+            "id": 2,
+            "name": "Crazy Crazy Cats",
+            "created_at": "2015-03-07T21:40:45.880Z",
+            "updated_at": "2015-03-07T21:40:45.880Z"
+        }
+    ]
 }
 ```
 
