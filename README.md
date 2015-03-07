@@ -81,7 +81,7 @@ url: https://geniussports.herokuapp.com
     }
   ]
 }
-
+```
 # Show Player
 
 ### /players/:id GET
@@ -119,5 +119,3 @@ url: https://geniussports.herokuapp.com
 * player: {name: name, medical_name: doctor/office, medical_number: phone#, medical_info: "additional notes about their medical information such as allergies or conditions" }
 
 If auth_token belongs to a parent, returns same as Show Player above.
-
-

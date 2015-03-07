@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150307173048) do
+ActiveRecord::Schema.define(version: 20150307175944) do
 
   create_table "families", force: :cascade do |t|
     t.integer  "user_id"
@@ -45,8 +45,9 @@ ActiveRecord::Schema.define(version: 20150307173048) do
     t.boolean  "manager"
     t.boolean  "parent"
     t.boolean  "coach"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.boolean  "invite_accepted"
   end
 
   add_index "roles", ["team_id"], name: "index_roles_on_team_id"
@@ -79,6 +80,7 @@ ActiveRecord::Schema.define(version: 20150307173048) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "authentication_token"
+    t.string   "phone_number"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token"
