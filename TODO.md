@@ -1,4 +1,4 @@
-[ ] Add user.id to the already existing JSON returns for user create/edit
+[*] Add user.id to the already existing JSON returns for user create/edit
 [ ] /teams POST (create a team and automatically become manager)
 [ ] /team/:id GET (displays team information)
 [ ] /teams/:id PUT (change information about the team)
