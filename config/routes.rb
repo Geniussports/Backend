@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :players, only: [:create, :update, :show]
   get 'email', :to => 'genius_sports#index'
+  get '/email/invitation', to: 'genius_sports#invitation'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

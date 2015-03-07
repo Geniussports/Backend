@@ -14,12 +14,17 @@ class TeamsController < ApplicationController
 
   def update
     @team = Team.find(params[:id])
-    @team.update(team_params)
-    if @team.save
-      render json: { team: @team }, status: :created
-    else
-      render json: { messages: @team.errors.full_messages },
-             status: :unprocessable_entity
+    binding.pry
+    invites = JSON.parse(params[:invites])
+    if invites
+      invites.each do |invite|
+        GeniusSportsMailer.invitation(invite, @team.name).deliver_now
+      end
+    # if @team.save
+    #   render json: { team: @team }, status: :created
+    # else
+    #   render json: { messages: @team.errors.full_messages },
+    #          status: :unprocessable_entity
     end
   end
 
