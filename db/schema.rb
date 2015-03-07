@@ -11,7 +11,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150307013706) do
+ActiveRecord::Schema.define(version: 20150307022016) do
+
+  create_table "families", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "player_id"
+    t.string   "relationship"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string   "name"
+    t.string   "medical_name"
+    t.string   "medical_number"
+    t.text     "medical_info"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "team_id"
+    t.boolean  "manager"
+    t.boolean  "parent"
+    t.boolean  "coach"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "roles", ["team_id"], name: "index_roles_on_team_id"
+  add_index "roles", ["user_id"], name: "index_roles_on_user_id"
+
+  create_table "team_players", force: :cascade do |t|
+    t.integer  "player_id"
+    t.integer  "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
