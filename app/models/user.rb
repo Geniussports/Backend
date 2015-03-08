@@ -18,12 +18,12 @@ class User < ActiveRecord::Base
   end
 
   def as_json(opts={})
-    options = {:only => [:email, :id, :authentication_token]}
+    options = {:only => [:name, :phone_number, :email, :id, :authentication_token]}
     options.merge!(opts)
     super(options)
   end
 
-  
+
 
   private
     def generate_authentication_token
