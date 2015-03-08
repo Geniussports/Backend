@@ -231,3 +231,28 @@ If auth_token belongs to a parent, returns same as Show Player above.
 }
 
 ```
+# Edit Game
+
+### /games/game_id EDIT
+
+* auth_token
+* game: {location: location}
+* game: {team_id: team_id}
+* game: {date: date}
+* game: {time: time}
+* game: {opponent: opponent}
+```
+{
+    "game": {
+        "id": 15,
+        "location": "Selhurst Park",
+        "date": "03-15-2015",
+        "time": "9:00AM",
+        "opponent": "Crystal Palace",
+        "created_at": "2015-03-08T15:24:49.212Z",
+        "updated_at": "2015-03-08T15:29:36.775Z",
+        "team_id": 2
+    }
+}
+
+```
