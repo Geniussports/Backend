@@ -171,7 +171,7 @@ If auth_token belongs to a parent, returns same as Show Player above.
 # Create Game
 
 ### /games POST
-#### location required; can optionally pass in date, time, opponent
+###### location required; can optionally pass in date, time, opponent
 
 * auth_token
 * game: {location: location}
