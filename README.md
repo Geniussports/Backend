@@ -236,8 +236,6 @@ If auth_token belongs to a parent, returns same as Show Player above.
 ### /games/game_id EDIT
 
 * auth_token
-* game: {location: location}
-* game: {team_id: team_id}
 * game: {date: date}
 * game: {time: time}
 * game: {opponent: opponent}
