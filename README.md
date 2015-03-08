@@ -207,4 +207,17 @@ If auth_token belongs to a parent, returns same as Show Player above.
     }
 }
 
+```
+
+# Delete Game
+
+### /games/:id DELETE
+
+```
+{
+    "game": "Game was deleted"
+}
+
+```
+
 
