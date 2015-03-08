@@ -181,20 +181,22 @@ If auth_token belongs to a parent, returns same as Show Player above.
 # Create Game
 
 ### /games POST
-###### location required; can optionally pass in date, time, opponent
+###### location & team_id required; can optionally pass in date, time, opponent
 
 * auth_token
 * game: {location: location}
+* game: {team_id: team_id}
 ```
 {
     "game": {
-        "id": 11,
-        "location": "Anfield",
+        "id": 15,
+        "location": "Selhurst Park",
         "date": null,
         "time": null,
         "opponent": null,
-        "created_at": "2015-03-08T02:38:44.629Z",
-        "updated_at": "2015-03-08T02:38:44.629Z"
+        "created_at": "2015-03-08T15:24:49.212Z",
+        "updated_at": "2015-03-08T15:24:49.212Z",
+        "team_id": 2
     }
 }
 
