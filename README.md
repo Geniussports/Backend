@@ -190,7 +190,7 @@ If auth_token belongs to a parent, returns same as Show Player above.
 
 ```
 
-# Create Game
+# Show Game
 
 ### /games GET
 
