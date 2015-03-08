@@ -54,7 +54,8 @@ url: https://geniussports.herokuapp.com
     "name": "dogs",
     "created_at": "2015-03-07T16:05:37.332Z",
     "updated_at": "2015-03-07T16:05:37.332Z"
-}
+    "sport": "dogfighting"
+  }
 }
 
 ```
@@ -64,28 +65,43 @@ url: https://geniussports.herokuapp.com
 ### /teams/:id
 
 ```
-{
+  {
   "team": {
     "id": 4,
     "name": "dogs",
     "created_at": "2015-03-07T16:05:37.332Z",
-    "updated_at": "2015-03-07T16:05:37.332Z"
-},
+    "updated_at": "2015-03-07T16:05:37.332Z",
+    "sport": "dogfighting"
+  },
   "coaches": [
     {
       "id": 1,
       "email": "b@b.com",
       "role": "manager"
     }
-    ],
+  ],
   "players": [
     {
-      "id": 1,
-      "name": "Angus McCreary"
-      },
+      "id": 5,
+      "name": "Crum"
+    }
+  ],
+  "games": [
     {
       "id": 2,
-      "name": "Butts McGee"
+      "location": "GA",
+      "date": "march",
+      "time": "sure",
+      "opponent": "cows",
+      "team_id": 4
+    },
+    {
+    "id": 3,
+    "location": "Augusta, GA",
+    "date": "March 27, 2015",
+    "time": "7:00 PM",
+    "opponent": "Fighting Vultures",
+    "team_id": 4
     }
   ]
 }
@@ -95,7 +111,7 @@ url: https://geniussports.herokuapp.com
 ### /players/:id GET
 
 * auth_token: logged_in_user's token
-* player: {name: name, medical_name:  }
+
 ```
 {
     "player": {
