@@ -67,6 +67,15 @@ url: https://geniussports.herokuapp.com
 }
 ```
 
+# Show Current User
+
+### /users/sign_in POST
+
+###### Mandatory Params
+* auth_token
+
+Returns same as Sign In User above.
+
 # Update Password
 
 ### /users/password PUT
