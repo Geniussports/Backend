@@ -6,7 +6,11 @@ url: https://geniussports.herokuapp.com
 
 ### /users POST
 
+###### Mandatory Params
 * user: {email: email, password: password}
+
+###### Optional Params
+* user: {name: name, phone_number: phone_number}
 ```
 {
   "user": {
@@ -23,7 +27,8 @@ url: https://geniussports.herokuapp.com
 
 ### /users/sign_in POST
 
-* user: {email: email, password: password, name: name, phone_number: phone_number}
+###### Mandatory Params
+* user: {email: email, password: password}
 ```
 {
     "user": {
@@ -49,6 +54,7 @@ url: https://geniussports.herokuapp.com
 
 ### /users/password PUT
 
+###### Mandatory Params
 * auth_token
 * user: {password: newpassword}
 ```
@@ -77,8 +83,12 @@ url: https://geniussports.herokuapp.com
 
 ### /teams POST
 
+###### Mandatory Params
 * auth_token
 * team: {name: name}
+
+###### Optional Params
+* team: {sport: sport}
 ```
 {
   "team": {
@@ -140,10 +150,24 @@ url: https://geniussports.herokuapp.com
   ]
 }
 ```
+# Edit Team
+
+### /teams/:id PUT
+
+###### Mandatory Params
+* auth_token: logged_in_user's token
+
+###### Optional Params
+* invites: [[email, player_name], [email, player_name], [email, player_name]]
+* player_id: player_id (Drops this player from the team)
+
+###### Returns same as Show Team above
+
 # Show Player
 
 ### /players/:id GET
 
+###### Mandatory Params
 * auth_token: logged_in_user's token
 
 ```
@@ -173,6 +197,7 @@ url: https://geniussports.herokuapp.com
 
 ### /players/:id PUT
 
+###### Mandatory Params (Must be a Parent)
 * auth_token: logged_in_user's token
 * player: {name: name, medical_name: doctor/office, medical_number: phone#, medical_info: "additional notes about their medical information such as allergies or conditions" }
 * relationship: relationship
@@ -182,11 +207,15 @@ If auth_token belongs to a parent, returns same as Show Player above.
 # Create Game
 
 ### /games POST
-###### location & team_id required; can optionally pass in date, time, opponent
 
+###### Mandatory Params
 * auth_token
-* game: {location: location}
 * game: {team_id: team_id}
+
+###### Optional Params
+* game: {location: location, date: date, time: time, opponent: opponent}
+
+
 ```
 {
     "game": {
@@ -225,6 +254,8 @@ If auth_token belongs to a parent, returns same as Show Player above.
 # Delete Game
 
 ### /games/:id DELETE
+##### Mandatory Params
+* auth_token
 
 ```
 {
@@ -236,10 +267,12 @@ If auth_token belongs to a parent, returns same as Show Player above.
 
 ### /games/game_id EDIT
 
+##### Mandatory Params
 * auth_token
-* game: {date: date}
-* game: {time: time}
-* game: {opponent: opponent}
+
+##### Optional Params
+* game: {date: date, location: location, time: time, opponent: opponent}
+
 ```
 {
     "game": {
