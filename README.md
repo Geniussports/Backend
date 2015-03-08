@@ -22,6 +22,23 @@ url: https://geniussports.herokuapp.com
   }
 }
 ```
+# Edit User
+
+### /users PUT
+
+###### Optional Params
+* user: {name: name, phone_number: phone_number, email: email}
+```
+{
+    "user": {
+        "id": 6,
+        "email": "real@fake.com",
+        "authentication_token": "jfShNZeZaTK2QMC757us",
+        "phone_number": "555-555-5555",
+        "name": "Bob"
+    }
+}
+```
 
 # Sign In User
 
