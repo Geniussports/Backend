@@ -1,10 +1,11 @@
 class GamesController < ApplicationController
-  before_action :authenticate_user_from_token!, :only => [:create]
-  before_action :set_game, :only => [:show]
-
+  before_action :authenticate_user_from_token!, :only => [:create, :edit, :destroy]
+  
   def create
     @game = Game.new(game_params)
-    if @game.save
+    @team = Team.find(params[:game][:team_id]) if params[:game][:team_id]
+    if @team && @game.save 
+      @team.games << @game
       render json: { game: @game }, status: :created
     else
       render json: { error: "Game not created" }, status: :unprocessable_entity
@@ -13,7 +14,17 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    render json: { game: @game }
+    render json: { game: @game }, status: :ok
+  end
+
+  def update
+    @game = Game.find(params[:id])
+    @game.update(game_params)
+    if @game.save!
+      render json: { game: @game }, status: :ok
+    else
+      render json: { error: "Game was not updated" }, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -23,11 +34,8 @@ class GamesController < ApplicationController
   end
 
   private
-  def set_game
-    @game = Game.find(params[:id])
-  end
-
+  
   def game_params
-    params.require(:game).permit(:location)
+    params.require(:game).permit(:location, :date, :time, :opponent, :team_id)
   end
 end
