@@ -9,11 +9,13 @@ url: https://geniussports.herokuapp.com
 * user: {email: email, password: password}
 ```
 {
-    "user": {
-        "id": 2,
-        "email": "c@c.com",
-        "authentication_token": "Y5zT6jysg_ssc-hppsW_"
-    }
+  "user": {
+    "id": 8,
+    "email": "jerry@springer.com",
+    "authentication_token": "SCGFkkMzasfxu-tFixBb",
+    "phone_number": "5554443332",
+    "name": "Jerry Springer"
+  }
 }
 ```
 
@@ -28,6 +30,8 @@ url: https://geniussports.herokuapp.com
         "id": 2,
         "email": "devito@gmail.com",
         "authentication_token": "wbwFz4DjZZEAzWg5QsEf"
+        "phone_number": "7705554040",
+        "name": "Macho Man Alan Matthews"
     },
     "teams": [
         {
@@ -35,6 +39,7 @@ url: https://geniussports.herokuapp.com
             "name": "Crazy Crazy Cats",
             "created_at": "2015-03-07T21:40:45.880Z",
             "updated_at": "2015-03-07T21:40:45.880Z"
+            "sport": "Underwater Basket Weaving"
         }
     ]
 }
@@ -52,6 +57,8 @@ url: https://geniussports.herokuapp.com
         "id": 2,
         "email": "devito@gmail.com",
         "authentication_token": "wbwFz4DjZZEAzWg5QsEf"
+        "phone_number": "7705554040",
+        "name": "Macho Man Alan Matthews"
     },
     "teams": [
         {
@@ -59,6 +66,7 @@ url: https://geniussports.herokuapp.com
             "name": "Crazy Crazy Cats",
             "created_at": "2015-03-07T21:40:45.880Z",
             "updated_at": "2015-03-07T21:40:45.880Z"
+            "sport": "Underwater Basket Weaving"
         }
     ]
 }
@@ -89,44 +97,46 @@ url: https://geniussports.herokuapp.com
 ### /teams/:id
 
 ```
-  {
+{
   "team": {
     "id": 4,
     "name": "dogs",
     "created_at": "2015-03-07T16:05:37.332Z",
     "updated_at": "2015-03-07T16:05:37.332Z",
-    "sport": "dogfighting"
+    "sport": null
   },
   "coaches": [
     {
       "id": 1,
+      "name": "Macho Man Alan Matthews",
+      "phone_number": "7705554040",
       "email": "b@b.com",
       "role": "manager"
     }
   ],
-  "players": [
-    {
-      "id": 5,
-      "name": "Crum"
-    }
-  ],
-  "games": [
-    {
-      "id": 2,
-      "location": "GA",
-      "date": "march",
-      "time": "sure",
-      "opponent": "cows",
-      "team_id": 4
-    },
-    {
+"players": [
+  {
+    "id": 5,
+    "name": "Crum"
+  }
+],
+"games": [
+  {
+    "id": 2,
+    "location": "GA",
+    "date": "march",
+    "time": "sure",
+    "opponent": "cows",
+    "team_id": 4
+  },
+  {
     "id": 3,
     "location": "Augusta, GA",
     "date": "March 27, 2015",
     "time": "7:00 PM",
     "opponent": "Fighting Vultures",
     "team_id": 4
-    }
+  }
   ]
 }
 ```
@@ -219,5 +229,3 @@ If auth_token belongs to a parent, returns same as Show Player above.
 }
 
 ```
-
-

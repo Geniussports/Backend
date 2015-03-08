@@ -21,7 +21,8 @@ class Team < ActiveRecord::Base
 
   def json_coaches
     self.users.where('manager=? OR coach=?', true, true).map do |user|
-      {id: user.id, email: user.email, role: user_role(user)}
+      {id: user.id, name: user.name, phone_number: user.phone_number,
+        email: user.email, role: user_role(user)}
      end
   end
 
