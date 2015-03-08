@@ -1,6 +1,4 @@
 [*] Add user.id to the already existing JSON returns for user create/edit
-[*] /teams POST (create a team and automatically become manager)
-[*] /team/:id GET (displays team information)
 [ ] /teams/:id PUT (change information about the team)
       (manager, coach, player ids and names, parents can wait for a click on a player)
       invite: [[email, player name], [email, player name]]
@@ -13,8 +11,6 @@
 [*] /players PUT (parents can edit player)
 [ ] add a new Game model which has location, date, time, opponent.
     Games belong_to a team, teams have many games
-[ ] add an "invite_accepted" boolean to Roles
-[ ] add phone number column to Users
 
 Thoughts:
 When a coach sends out invites, he sends email and player name. Player name should be put in roster regardless of whether the parent has accepted, so a "player" will be created at that point. But when a parent processes their invite, they should be given the option
