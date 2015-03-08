@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
 
   resources :teams, only: [:create, :update, :show]
-  resources :games, only: [:create, :show, :destroy]
+  resources :games, only: [:create, :show, :destroy, :update]
 
   resources :players, only: [:create, :update, :show]
   get 'email', :to => 'genius_sports#index'
