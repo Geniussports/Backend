@@ -40,6 +40,30 @@ url: https://geniussports.herokuapp.com
 }
 ```
 
+# Update Password
+
+### /users/password PUT
+
+* auth_token
+* user: {password: newpassword}
+```
+{
+    "user": {
+        "id": 2,
+        "email": "devito@gmail.com",
+        "authentication_token": "wbwFz4DjZZEAzWg5QsEf"
+    },
+    "teams": [
+        {
+            "id": 2,
+            "name": "Crazy Crazy Cats",
+            "created_at": "2015-03-07T21:40:45.880Z",
+            "updated_at": "2015-03-07T21:40:45.880Z"
+        }
+    ]
+}
+
+```
 
 # Create Team
 
@@ -127,3 +151,4 @@ url: https://geniussports.herokuapp.com
 * player: {name: name, medical_name: doctor/office, medical_number: phone#, medical_info: "additional notes about their medical information such as allergies or conditions" }
 
 If auth_token belongs to a parent, returns same as Show Player above.
+
