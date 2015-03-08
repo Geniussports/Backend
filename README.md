@@ -23,7 +23,7 @@ url: https://geniussports.herokuapp.com
 
 ### /users/sign_in POST
 
-* user: {email: email, password: password}
+* user: {email: email, password: password, name: name, phone_number: phone_number}
 ```
 {
     "user": {
@@ -175,6 +175,7 @@ url: https://geniussports.herokuapp.com
 
 * auth_token: logged_in_user's token
 * player: {name: name, medical_name: doctor/office, medical_number: phone#, medical_info: "additional notes about their medical information such as allergies or conditions" }
+* relationship: relationship
 
 If auth_token belongs to a parent, returns same as Show Player above.
 

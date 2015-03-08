@@ -23,7 +23,10 @@ class User < ActiveRecord::Base
     super(options)
   end
 
-
+  def relationship(player, relationship)
+    Family.find_by_user_id_and_player_id(self.id, player.id).
+           update(relationship: relationship)
+  end
 
   private
     def generate_authentication_token
