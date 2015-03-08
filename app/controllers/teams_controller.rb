@@ -49,7 +49,8 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     render json: {team: @team,
                   coaches: @team.json_coaches,
-                  players: @team.json_players}
+                  players: @team.json_players,
+                  games: @team.json_games}
   end
 
 private

@@ -30,4 +30,11 @@ class Team < ActiveRecord::Base
       {id: player.id, name: player.name }
     end
   end
+
+  def json_games
+    self.games.map do |game|
+      {id: game.id, location: game.location, date: game.date, time: game.time,
+        opponent: game.opponent, team_id: self.id}
+    end
+  end
 end
