@@ -190,3 +190,21 @@ If auth_token belongs to a parent, returns same as Show Player above.
 
 ```
 
+# Create Game
+
+### /games GET
+
+```
+{
+    "game": {
+        "id": 11,
+        "location": "Anfield",
+        "date": null,
+        "time": null,
+        "opponent": null,
+        "created_at": "2015-03-08T02:38:44.629Z",
+        "updated_at": "2015-03-08T02:38:44.629Z"
+    }
+}
+
+
