@@ -8,32 +8,13 @@ class PlayersController < ApplicationController
 
   def update
     @player = Player.find(params[:id])
-    if @player.families.any? { |par| par.id == current_user.id }
+    if @player.families.any? { |f| f.user_id == current_user.id }
       @player.update(player_params)
+      current_user.relationship(@player, params[:relationship]) if params[:relationship]
       render_player
     else
-      render json: "Sorry, only a family member can edit a player's information."
-    end
-  end
-
-  def create
-    team = Team.find(params[:team])
-    parent = User.find_by(email: params[:email])
-    name = params[:name]
-    if parent
-      @player = parent.players.where("lower(name) = ?", name.downcase).first
-      if @player
-        # TODO STUFF??
-      else
-        @player = Player.create(name: name)
-        @player.teams << team
-        @player.users << parent
-        # TODO STUFF??
-        binding.pry
-        render json: "Sure, we sent an invitation, wink, wink"
-      end
-    else
-      render json: "Sure, we sent an invitation, wink, wink"
+      render json: {messages: "Sorry, only a family member can edit a player's information."},
+                    status: :unauthorized
     end
   end
 
@@ -43,7 +24,7 @@ class PlayersController < ApplicationController
     end
 
     def render_player
-      family = @player.families.map do |f|
+      family = @player.families.reload.map do |f|
         user = User.find(f.user_id)
         { user: {id: user.id, email: user.email}, relationship: f.relationship }
       end
